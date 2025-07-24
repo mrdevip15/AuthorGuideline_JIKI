@@ -35,7 +35,7 @@
 \fancypagestyle{firststyle}
 {
    \fancyhf{}
-   \chead{Jurnal Ilmu Komputer dan Informasi (Journal of Computer Science and Information) \\ 15/1 (2022), xx-xx. DOI: \url{http://dx.doi.org/10.21609/jiki.v15i1.xxx}}
+   \chead{Jurnal Ilmu Komputer dan Informasi (Journal of Computer Science and Information) \\ 15/1 (2022), xx-xx. DOI: \url{http://dx.doi.org/xx/jiki.v15xx.xxx}}
    \fancyfoot[C]{\thepage}
 }
 
@@ -51,15 +51,17 @@
 \def\figurename{Fig.}%
 \def\tablename{Table}%
 
+% Path to pictures
+\graphicspath{{../pics/}}
+
 \begin{document}
 
 \title{Thermodynamic Properties of Magnetic Models Using Monte Carlo Simulations: A Study of Vertex-Cubic Spin Systems}
 
-\author{\IEEEauthorblockN{Fauzan Husain\textsuperscript{1}, Tadjuddin Surungan\textsuperscript{2}\\\\}
+\author{\IEEEauthorblockN{Fauzan Husain, Tasrief Surungan\\\\}
 	\IEEEauthorblockA{
-		\normalfont \textsuperscript{1} Department of Physics, Faculty of Mathematics and Natural Sciences, Hasanuddin University, Makassar, Indonesia\\
-		\textsuperscript{2} Department of Physics, Faculty of Mathematics and Natural Sciences, Hasanuddin University, Makassar, Indonesia\\\\
-		\textit{Email: fauzan.husain@unhas.ac.id, tadjuddin.surungan@unhas.ac.id} 
+		\normalfont Department of Physics, Faculty of Mathematics and Natural Sciences, Hasanuddin University, Makassar, Indonesia\\\\
+		\textit{Email: fauzanhusain17@gmail.com, tasrief@gmail.com} 
 	} \\
 }
 
@@ -99,6 +101,93 @@
 \balance
 
 \bibliographystyle{IEEEtran}
-\bibliography{IEEEabrv,IEEEexample}
+\bibliography{IEEEabrv,references}
+
+% Figures Section
+\section*{Figures}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 1. Klasifikasi Magnetik.png}
+    \caption{Classification of magnetic materials based on their response to external magnetic fields.}
+    \label{fig:magnetic_classification}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 4. Perubahan Fase Magnetik.png}
+    \caption{Magnetic phase transitions showing the change in magnetization as a function of temperature.}
+    \label{fig:magnetic_phase_transition}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 5. Spin pada Model Ising.png}
+    \caption{Spin orientations in the Ising model, showing the discrete nature of spin variables.}
+    \label{fig:ising_model}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 6. The Platonic Solids.png}
+    \caption{The Platonic solids representing the geometric basis for polyhedral spin models.}
+    \label{fig:platonic_solids}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 7. Penommoran Titik Sudut pada Kubus.jpg}
+    \caption{Vertex numbering on a cube, illustrating the eight possible spin orientations in the vertex-cubic model.}
+    \label{fig:cube_vertices}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 8. Ilustrasi Kisi Persegi Berlapis.png}
+    \caption{Illustration of layered square lattices, showing the structure used in the simulations.}
+    \label{fig:layered_lattice}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 9. Cv vs T pada Kisi Satu Lapis.png}
+    \caption{Specific heat vs. temperature for a single-layer lattice, showing the peak that indicates a phase transition.}
+    \label{fig:cv_single_layer}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 10. Cv vs T pada Kisi 2 Lapis.png}
+    \caption{Specific heat vs. temperature for a two-layer lattice, showing a sharper peak at a higher temperature.}
+    \label{fig:cv_two_layer}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 11. Cv vs T pada Kisi 3 Lapis.png}
+    \caption{Specific heat vs. temperature for a three-layer lattice, showing an even sharper peak at a higher temperature.}
+    \label{fig:cv_three_layer}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 21. Cv vs T pada Kisi 32 x 32.png}
+    \caption{Specific heat vs. temperature for a 32×32 lattice, showing the effect of system size on phase transition characteristics.}
+    \label{fig:cv_32x32}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 25. M^2 vs T pada Kisi 32x32.png}
+    \caption{Squared magnetization vs. temperature for a 32×32 lattice, showing the decay of magnetic order with increasing temperature.}
+    \label{fig:m2_32x32}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Gambar 29. E vs T pada Kisi 32x32.png}
+    \caption{Energy vs. temperature for a 32×32 lattice, showing the increase in internal energy with temperature.}
+    \label{fig:e_32x32}
+\end{figure}
 
 \end{document} 
