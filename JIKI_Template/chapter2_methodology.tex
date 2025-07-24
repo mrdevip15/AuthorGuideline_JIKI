@@ -1,0 +1,220 @@
+\section{Methodology}
+
+\subsection{Vertex-Cubic Spin Model}
+
+The cubic model is part of polyhedral symmetry with 8 vertices, 6 faces, and 12 edges. The cubic spin model is a discrete representation of spin orientations in three-dimensional space, where spin directions can only point to one of the eight cube vertices. The symmetry of this model follows the $O_h$ group, which is the cubic symmetry group that includes rotations and reflections.
+
+This spin model is a simplification of the Heisenberg model in discrete form, where spin orientations are not continuous but limited to eight fixed directions. Since the distribution of points on the unit sphere surface is quite uniform and symmetric, this model can describe systems with cubic anisotropy and is used to analyze magnetic systems with cubic space symmetry.
+
+The selection of the cubic spin model is relevant for studying phase transitions and critical properties of three-dimensional systems, especially in cases where continuous approaches are too complex or physically inappropriate. Although it has lower symmetry compared to some other models, the cubic model is often used because of its simplicity in computational implementation and still able to capture important aspects of collective spin behavior in discrete systems.
+
+\subsection{System Hamiltonian}
+
+The total system energy (Hamiltonian) that is simulated is defined by interactions between nearest neighbor spins. The Hamiltonian of this model is \cite{Yunita2022}:
+
+\begin{equation}
+H = -J \sum_{\langle i,j \rangle} \vec{s_i} \cdot \vec{s_j}
+\label{eq:hamiltonian}
+\end{equation}
+
+where $J$ is the coupling constant, $\vec{s_i}$ and $\vec{s_j}$ are unit vectors representing spin orientations at sites $i$ and $j$, and the summation $\langle i,j \rangle$ is performed over all nearest neighbor spin pairs on the lattice. In this program, the value of $J$ is assumed to be positive (ferromagnetic) and is often set to 1 to simplify calculations.
+
+\subsection{Layered Lattice Model}
+
+The layered lattice model is a generalization of two-dimensional (2D) systems into quasi-three-dimensional systems by adding one or more layers arranged parallel in the third direction (usually the z-direction). In this model, each layer is arranged in a two-dimensional lattice, such as square, and connected vertically through interlayer interactions.
+
+This approach allows studying the influence of system thickness on thermodynamic behavior, particularly in the context of phase transitions and critical phenomena. Layered lattices play an important role in understanding the relationship between two-dimensional and three-dimensional systems.
+
+It is widely known that two-dimensional systems, such as the classical Ising model, do not show first-order transitions in certain temperature ranges without domains, while three-dimensional systems facilitate more sudden and complex transitions. The use of layered structures increases the dimensionality of the system, allowing for more robust phase transitions, although each layer experiences two-dimensional dynamics independently.
+
+Layered structures have been widely studied, especially in the context of Ising, Bloom-Kapell, and Potts models. Numerical studies using approaches such as effective field theory (EFT), Monte Carlo simulation, and renormalization approaches have shown that the number of layers directly affects the critical temperature $T_c$ and the intensity of energy fluctuations.
+
+For example, \cite{Ertaş2014} found that a two-layer Bloom-Kapell system with spin 3/2 shows sharper phase transitions than single-layer systems, and that maximum heat capacity and accumulated binding material values shift to higher temperatures as the number of layers increases.
+
+The layered lattice model also describes real structures in material systems such as thin magnetic films, layered two-dimensional materials such as graphene, and layered heterostructures in quantum systems. In this context, the influence of interlayer interactions becomes crucial for understanding phenomena such as magnetic anisotropy, spin fields, and layered superconductor behavior.
+
+\subsection{Finite Size Scaling}
+
+Experiments on real systems and calculations such as Monte Carlo simulations use finite systems. By observing how quantities $C$, $M$, $\chi$ vary for different lattice sizes, it is possible to calculate critical exponent values \cite{Cardy1996}.
+
+Thermodynamic functions are generally extensive quantities, meaning their magnitude depends on system size. This property allows determination of system temperature and critical exponents through the Finite Size Scaling method. Suppose a thermodynamic function $f(L)$ depends on system size $L$ as follows:
+
+\begin{equation}
+f(L) = L^g(L)
+\label{eq:scaling}
+\end{equation}
+
+then it can be shown that for systems experiencing second-order phase transitions, the thermodynamic function $f(L)$ is homogeneous exactly at the critical temperature; which means that $f(L_1) = f(L_2)$, where $L_1$ and $L_2$ are two different sizes of the system.
+
+For correlation comparison, the scaling function is as follows:
+
+\begin{equation}
+Q = f((T - T_c)L^\nu)
+\label{eq:correlation}
+\end{equation}
+
+Equation \ref{eq:correlation} shows the scaling relationship for thermodynamic quantities $Q$ around the critical point. Here, $T$ is the system temperature and $T_c$ is the critical temperature where the second-order phase transition occurs. $L$ represents the characteristic size of the system, which plays an important role in finite-size analysis, while $\nu$ is the critical exponent that regulates how correlation length and other quantities diverge near $T_c$. The form $f$ is a universal scaling function, which implies that data from various system sizes and temperatures will "collapse" into one curve when plotted against the scaled argument $(T - T_c)L^\nu$.
+
+\subsection{Computational Program Description}
+
+This research uses a computational program specially developed in the C programming language to simulate the thermodynamic properties of cubic magnetic models on quasi-three-dimensional lattices. This program will be configured for lattices of size 8×8 and will be compared with results from lattices of size 16×16, 24×24, and 32×32 to analyze the effect of system size on simulation results.
+
+This program is designed to simulate the behavior of magnetic systems with cubic-shaped spins (8 possible spin orientations) on layered two-dimensional lattices with periodic boundary conditions. The main goal is to calculate various thermodynamic parameters such as energy, specific heat, and order parameters at various temperatures to understand phase transitions and critical properties of the system.
+
+\subsubsection{Main Structure and Components}
+
+The code inside the C file is structured with several main functions that interact with each other to run Monte Carlo simulations:
+
+\begin{enumerate}
+\item \textbf{main()}: The main function that initializes simulation parameters (number of Monte Carlo steps, temperature range), calls initialization functions, runs the temperature simulation loop, and prints final results.
+
+\item \textbf{period()}: This function is responsible for setting Periodic Boundary Conditions (PBC) for two-dimensional lattices. It ensures that spins at lattice edges interact with spins on opposite sides, simulating infinite systems.
+
+\item \textbf{mset()}: Defines 8 possible spin orientations, which represent cubic symmetry. Each spin orientation is represented by a vector $\vec{m} = (m_x, m_y, m_z)$ in three-dimensional space.
+
+\item \textbf{eset()}: Calculates interaction energy (coupling rule) between two spins. The interaction energy between two spins $i$ and $j$ is defined as $E_{ij} = -(\vec{m_i} \cdot \vec{m_j})$, where $\vec{m_i}$ and $\vec{m_j}$ are spin orientation vectors.
+
+\item \textbf{rset()}: Prepares the spin reflection table (rr). This function is important for the Wolff algorithm, where spins are reflected against certain planes to form clusters.
+
+\item \textbf{spinset()}: Initializes all spins on the lattice to a certain initial orientation (in this case, all spins are set to orientation $isp[la] = 0$).
+
+\item \textbf{sineset()}: Pre-calculates sine and cosine values for each lattice position. This is used in calculating correlation length and other order parameters that involve spatial components.
+
+\item \textbf{mc()}: This function implements the main Monte Carlo simulation loop. Inside it, the program runs a number of equilibration steps (nmcs1) and a number of measurement steps (nmcs2). The program conditionally calls spin update algorithms, either Metropolis (metro()) or Wolff (single\_clus()), based on the \#define update definition. In the current configuration, the Wolff algorithm is used.
+
+\item \textbf{metro()}: Implements the Metropolis Monte Carlo algorithm. In each step, a spin is randomly selected, its orientation is randomly changed, and the change is accepted or rejected based on Metropolis-Hastings criteria (energy change and Boltzmann probability).
+
+\item \textbf{single\_clus()}: Implements the Wolff Cluster Update algorithm. This algorithm is more efficient in overcoming critical slowing down near phase transitions. It works by building clusters of parallel-oriented spins and reflecting them simultaneously.
+
+\item \textbf{ranset()} and \textbf{rnd()}: These two functions are located in different files and are called externally. These functions are implementations of a 32-bit random number generator. ranset() is used to initialize the random number generator seed, while rnd() generates the random number series needed for spin selection, new orientations, and probability decisions.
+\end{enumerate}
+
+\subsubsection{Measured Parameters}
+
+During the measurement phase, the program collects data to calculate the following thermodynamic properties:
+
+\begin{enumerate}
+\item \textbf{Temperature (T)}: Independent variable changed during simulation. Temperature is related to parameter $\beta$ through the relationship $1/\beta = kT$, where $k$ is the Boltzmann constant. In the context of this simulation, $k$ is often set to 1.
+
+\item \textbf{Quadratic Order Parameter $\langle M^2 \rangle$}: Measures the average square of total system magnetization. Total magnetization ($M$) is defined as the sum of spin vectors across the entire lattice: $M = \sum \vec{s_i}$. In general, $\langle M^2 \rangle$ is calculated as:
+
+\begin{equation}
+\langle M^2 \rangle = \frac{1}{N_{meas}} \sum_{t=1}^{N_{meas}} \left( \sum_{i=1}^{N} \vec{s_i}(t) \right)^2
+\label{eq:magnetization}
+\end{equation}
+
+where $N$ is the number of spins on the lattice, and $N_{meas}$ is the number of Monte Carlo steps for measurement.
+
+\item \textbf{Fourth Power Order Parameter $\langle M^4 \rangle$}: Used together with $\langle M^2 \rangle$ to calculate Binder Cumulant, a strong indicator for second-order phase transitions, defined as \cite{Jufrin2015}:
+
+\begin{equation}
+U_L = \frac{\langle M^4 \rangle}{\langle M^2 \rangle^2}
+\label{eq:binder}
+\end{equation}
+
+\item \textbf{Intermediate and long-range order parameters ($fg_2$, $fg_4$)}: Based on the implementation in the code, $fg_2$ is related to correlations between spins separated by half the lattice size ($L/2$) in both $x$ and $y$ directions. Meanwhile, $fg_4$ is related to correlations at a quarter of the lattice size ($L/4$). These measurements provide insights into how spins correlate with each other at intermediate to long distances in the system, which is important for understanding critical properties and phase transitions.
+
+\item \textbf{Average Energy per Spin $\langle E \rangle$}: Average internal energy of the system, calculated as the average total system energy per spin. Total system energy ($E$) is the sum of interactions between all nearest neighbor spin pairs:
+
+\begin{equation}
+E = \sum_{\langle i,j \rangle} E_{ij} = -\sum_{\langle i,j \rangle} \vec{s_i} \cdot \vec{s_j}
+\label{eq:energy}
+\end{equation}
+
+then, the average energy per spin is:
+
+\begin{equation}
+\langle E \rangle = \frac{1}{N \cdot N_{meas}} \sum_{t=1}^{N_{meas}} E_t
+\label{eq:avg_energy}
+\end{equation}
+
+\item \textbf{Specific Heat ($c_v$)}: Measures energy fluctuations of the system against temperature. Specific heat at constant volume can be calculated from internal energy fluctuations using the relationship:
+
+\begin{equation}
+C_v = \frac{1}{k_B T^2}(\langle E \rangle^2 - \langle E^2 \rangle)
+\label{eq:specific_heat}
+\end{equation}
+
+where $\langle E^2 \rangle$ is the average square of total energy. Peaks in the specific heat curve often indicate phase transitions.
+
+\item \textbf{Correlation Length ($\xi$)}: Measures how far spin orientations correlate with each other. At the phase transition point, the correlation length tends to diverge. In Monte Carlo simulations, the correlation length can be estimated from magnetization fluctuations or from spatial correlation functions. The formula used in the code:
+
+\begin{equation}
+\xi = \frac{1}{2} \sin \frac{\pi}{L} \sqrt{\frac{\langle M^2 \rangle}{C_v}}
+\label{eq:correlation_length}
+\end{equation}
+
+This is an estimate of the correlation length from magnetization fluctuations or susceptibility.
+\end{enumerate}
+
+\subsection{Monte Carlo Simulation}
+
+Computer simulation is a computational method that plays an important role in solving various physics problems, especially complex systems that cannot be solved analytically. This method allows systematic exploration and analysis of system physical properties. In addition, computer simulation acts as a virtual experiment, which allows us to understand the response or changes of a system to certain conditions without the need for direct experiments.
+
+One common method in handling complex physics systems, such as multiparticle systems, is Monte Carlo simulation. This method uses statistical sampling techniques that use random numbers to evaluate system behavior in a probabilistic context. The random numbers used in this simulation are usually pseudo-random numbers generated by deterministic computer algorithms \cite{Surungan2000}.
+
+In statistical mechanics, the physical quantities of a system are calculated by finding the thermal average value of various micro configurations that can occur at a certain temperature. Therefore, if there are a number of $M$ microstates, then the thermal average of a quantity $Q$ can be defined as follows \cite{Surungan2000}:
+
+\begin{equation}
+\langle Q \rangle = \sum_{j=1}^{M} Q_j p_j
+\label{eq:thermal_avg}
+\end{equation}
+
+where $Q_j$ is the value of quantity $Q$ in configuration $j$, while $j = 1, ..., M$, for example for the Ising model, $M = 2^N$ and the notation $\langle ... \rangle$ symbolizes the ensemble average. $P_j$ is the probability of occurrence of configuration $j$ in a system, which is expressed as follows:
+
+\begin{equation}
+p_j = \frac{e^{-\beta E_j}}{Z}, \quad Z = \sum_j e^{-\beta E_j}
+\label{eq:probability}
+\end{equation}
+
+where $E_j$ is the energy of configuration $j$, which is calculated using the Hamiltonian equation. $Z$ is the partition function, while $1/\beta = kT$, with $k$ being the Boltzmann constant and $T$ being the temperature variable.
+
+\subsubsection{Wolff Algorithm}
+
+In the Wolff algorithm, one Monte Carlo step (MCS) involves visiting all spins on the lattice sequentially or randomly, then updating each spin according to certain probabilities. The core of the Wolff method is to project planar spins onto a random axis so that the Kosterlitz–Thouless (KT) procedure on Ising spins can be applied.
+
+The KT transition itself is a higher-order transition: the internal energy in the system remains smooth up to the n-th derivative. Such transitions appear, for example, in the XY model which has the O(2) symmetry group. The Wolff algorithm facilitates the identification of a group of spins that, after projection, behave like Ising spins with the same orientation. This group of spins is then updated simultaneously according to temperature using probability $p = 1 - e^{-\beta \Delta E}$. Spins whose orientations are not aligned with the Ising spins will be updated in the next MCS.
+
+In the initial configuration (randomly selected), the lattice is split into unconnected clusters. Each cluster is treated as one unit during several update cycles. After one MCS is completed, we obtain a new spin configuration; spin interactions are returned to their original orientations, and the process is repeated.
+
+In practice, physical measurements are usually performed after a number of Monte Carlo steps, for example every 10 MCS to obtain reliable statistical data \cite{Surungan2017}.
+
+The simulation is divided into two main phases:
+
+\begin{enumerate}
+\item \textbf{Equilibration Phase (nmcs1)}: During this phase, the system is allowed to evolve for a specified number of Monte Carlo steps (nmcs1) without taking measurements. The goal is to ensure the system reaches thermal equilibrium at the given temperature, so that the initial configuration no longer influences measurement results.
+
+\item \textbf{Measurement Phase (nmcs2)}: After equilibration, thermodynamic property measurements are performed for an additional number of Monte Carlo steps (nmcs2). Data collected during this phase is used to calculate thermodynamic averages and their fluctuations. Because observations are stochastic, measurements are performed with ensemble averages from many spin configuration iterations. This approach is in line with the ergodic principle in statistics, which states that time averages can be replaced by ensemble averages.
+\end{enumerate}
+
+\subsection{Research Tools}
+
+The tools used in this research are:
+\begin{enumerate}
+\item Laptop with Linux Ubuntu version 6.11.0 operating system
+\item C language compiler application package (General Collection Compiler (GCC) and GNUPLOT)
+\end{enumerate}
+
+\subsection{Research Procedure}
+
+This research uses the Monte Carlo simulation method with the Wolff algorithm, commonly called single-cluster (spin update). The Wolff algorithm works by randomly selecting a spin and then forming a cluster, with testing of adjacent bonds. The number of steps taken is called mcs (Monte Carlo Step) depending on the speed of the system reaching equilibrium. Each data point is obtained from the average of the number of mcs.
+
+The simulation will be run through the following steps:
+\begin{enumerate}
+\item Reading input parameters (equilibration, measurement, and seed)
+\item Initializing a special random number generator
+\item Determining length and width dimensions to build layered two-dimensional lattices
+\item Setting periodic boundary conditions and nearest neighbor relationships
+\item Setting 8 cubic spin orientations
+\item Creating energy interaction matrices between spins
+\item Forming spin reflection transformation tables
+\item Setting initial temperature and temperature changes ($t$ and $\Delta t$)
+\item Initializing initial spin configurations uniformly
+\item Executing equilibration or heating process as many steps as specified so the system is in equilibrium
+\item Updating spin orientations with the cluster system at randomly selected lattice points based on probability $p = 1 - e^{-\beta \Delta E}$
+\item Executing the measurement process with the same steps as the equilibration process
+\item Calculating observables such as magnetization, internal energy, long-range and intermediate correlations, etc.
+\item Repeating steps (9) to (13) for each temperature
+\item Calculating and accumulating averages from each output that has been arranged in the simulation program
+\item Printing the average observation results
+\end{enumerate} 

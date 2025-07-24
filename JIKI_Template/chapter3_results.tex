@@ -1,0 +1,130 @@
+\section{Results and Analysis}
+
+\subsection{Comparison of Observables Between Lattice Sizes}
+
+In this section, the influence of lattice size $L$ on system behavior is analyzed for each number of layers. Three main observables that are compared are specific heat $C_v$, internal energy $\langle E \rangle$, and magnetic moment ratio ($U_L$).
+
+\subsubsection{Specific Heat ($C_v$)}
+
+The first step in finding possible phase changes is to calculate the specific heat defined in Equation \ref{eq:specific_heat}. The simulation results show that for all numbers of layers, the specific heat curves display peaks that become higher and sharper as the lattice size increases, which is characteristic of second-order phase transitions.
+
+For single-layer systems, the $C_v$ peak is observed around temperature $T \approx 0.88$ for $L = 24$, with a relatively large peak width. The increase in $C_v$ against $L$ appears non-monotonic, where the maximum value at $L = 32$ is slightly lower than $L = 24$, which is likely caused by statistical fluctuations or finite-size effects that have not been significantly reduced.
+
+For two-layer systems, the specific heat peak shifts to higher temperatures, around $T \approx 1.12$, and shows a more consistent increase in maximum value against $L$. The peak shape also becomes sharper, indicating that adding an additional layer increases the strength of energy fluctuations in the system.
+
+Three-layer systems show the most prominent characteristics. The $C_v$ peak at $L = 32$ reaches values of more than 90 at temperatures around $T \approx 1.25$, much higher than two-layer or single-layer systems. The sharp increase in maximum values and more significant critical temperature shifts indicate that interlayer coupling effects strengthen correlations between spins and clarify critical phenomena.
+
+In general, there are two main trends that can be concluded: increasing lattice size $L$ produces an increase in $C_v$ peak values, consistent with finite-size scaling theory predictions for second-order phase transitions. Adding the number of layers $n$ produces a shift in critical temperature toward higher values and sharper $C_v$ peak growth, indicating that the system effectively approaches three-dimensional behavior.
+
+These results show that the layered vertex-cubic spin model accurately captures collective properties that emerge from thermal and spatial interactions in quasi-three-dimensional systems. Further analysis is needed to quantify critical exponents through $C_v^{max}(L) \sim L^{\alpha/\nu}$ scaling and to estimate critical temperature $T_c$ more precisely from these peaks.
+
+\subsubsection{Internal Energy $\langle E \rangle$}
+
+The internal energy increases monotonically with temperature, from minimum values at low temperatures toward values approaching zero at high temperatures. This pattern is consistent with the decay of spin order due to thermal excitation.
+
+For single-layer systems, energy transitions occur more gradually compared to systems with more layers. For $L = 8$, the energy curve appears smoother, reflecting the weakening of energy fluctuations due to small system size. Meanwhile, at size $L = 24$, the energy change gradient is steeper around $T \approx 0.9$, approaching the location of phase transitions as observed in previous specific heat peaks.
+
+For two-layer systems, minimum energy values become lower compared to single-layer systems, indicating that adding interlayer interactions strengthens spin order at low temperatures. Energy transitions occur more sharply for all lattice sizes, especially at $L = 24$, showing that the system experiences more significant energy configuration reorganization in the critical temperature range $T \sim 1.1$.
+
+Energy behavior in three-layer systems shows the steepest energy change gradient around $T \approx 1.25$, consistent with the location of the previous $C_v$ peak. The energy gradient increases sharply in a narrow temperature interval, indicating that the system approaches thermodynamic limit behavior where energy changes are non-analytic at critical temperature.
+
+In general, it can be concluded that minimum internal energy ($T \rightarrow 0$) decreases as the number of layers increases, reflecting the addition of energy contributions from interlayer coupling. The gradient $\partial E/\partial T$ increases with increasing $L$ and $n$, indicating larger energy fluctuations around the transition temperature, and the location of the sharpest energy change shifts to higher temperatures with increasing $n$, consistent with the $T_c$ shift observed in specific heat data.
+
+These results support the interpretation that layered systems strengthen spatial correlations in the $z$ direction and behave more like three-dimensional systems as thickness increases. Internal energy as a function of temperature is a subtle but important indicator for identifying macroscopic system characteristics and detecting thermodynamic anomalies.
+
+\subsubsection{Magnetic Moment Ratio ($U_L$)}
+
+The magnetic moment ratio, or Binder cumulant, is a dimensionless quantity defined as $U_L = \langle M^4 \rangle/\langle M^2 \rangle^2$ and serves as a critical indicator for accurately detecting phase transitions. One advantage of $U_L$ compared to other observables like $C_v$ is the existence of intersection points between curves for various system sizes $L$ around the critical temperature $T_c$, which are relatively free from finite-size effects.
+
+For single-layer systems, curves from size $L = 8$ to $L = 32$ show intersections that are quite consistent around $T \approx 0.89$. These intersections occur in a narrow range with quite clear gradients, indicating that phase transitions can be identified stably even for limited-size systems.
+
+For two-layer systems, similar characteristics are observed, with curve intersection points moving to $T \approx 1.12$. Intersections between lattice sizes become sharper, indicating that the system experiences stronger critical fluctuations. The $U_L$ curves also become more separated at low and high temperatures, confirming that the difference between ordered and disordered phases is more pronounced.
+
+Three-layer systems show the most prominent behavior. Intersection points between curves occur at $T \approx 1.25$, and the gradient of $U_L$ value changes against temperature becomes very high in the critical region. This emphasizes that increasing the number of layers strengthens the sharpness of transitions and reduces the influence of finite-size effects.
+
+In addition, the convergence of $U_L$ values at high temperatures approaches zero, and at low temperatures approaches values close to 2/3, in accordance with theoretical expectations for discrete symmetric systems with two dominant states (bimodal distribution of magnetization).
+
+Thus, from the perspective of $U_L$ characteristics, additional evidence is obtained that strengthens previous analysis results: systems with more layers not only have higher critical temperatures but also show sharper and more easily detected transitions. In addition, $U_L$ intersection points provide more accurate and bias-free critical temperature $T_c$ estimates compared to estimates from $C_v$ peaks or magnetization loss.
+
+\subsection{Comparison Between Number of Layers at Fixed Lattice Size}
+
+\subsubsection{Specific Heat ($C_v$)}
+
+All graphs show that increasing the number of layers $n$ causes specific heat peaks to shift to higher temperatures and sharp growth in maximum $C_v$ values. This change occurs systematically from single-layer to three-layer systems.
+
+For small lattices $L = 8$, this effect is still visible but less sharp due to large fluctuations and significant finite-size effects. At $L = 16$ and especially at $L = 24$, this trend becomes clearer and quantitative.
+
+For all $L$ sizes, $C_v(T)$ curves for single-layer systems display the lowest and widest peaks, indicating more gradual transitions. For two-layer systems, peaks become sharper and shift to higher temperatures. Three-layer systems show very significant $C_v$ peak growth with curve shapes that are almost vertical around the transition temperature.
+
+This shows that interlayer coupling strengthens spin correlations in the $z$ direction, and that layered systems begin to mimic three-dimensional system behavior even though they are still in limited discrete structures. Sharp changes in $C_v$ values against $T$ in three-layer systems for $L = 24$ and $L = 32$ support the interpretation that the system experiences simultaneous macroscopic spin reorganization around the transition temperature.
+
+This is consistent with typical behavior of systems experiencing second-order phase transitions, where energy fluctuations become very large and divergent in the thermodynamic limit. Overall, this analysis strengthens the conclusion that increasing the number of layers, at fixed lattice size, drives the system toward sharper and more explicit critical behavior.
+
+\subsubsection{Average Square Magnetization $\langle M^2 \rangle$}
+
+For all lattice sizes, $\langle M^2 \rangle$ curves decrease with increasing temperature. Single-layer systems show smoother and more gradual decreases, with relatively low magnetization decay points.
+
+Conversely, two-layer and three-layer systems experience sharper decreases at higher temperatures, reflecting increased spin order stability due to interlayer coupling.
+
+For $L = 8$, although the curves are relatively smooth, it is still visible that three-layer systems maintain higher $\langle M^2 \rangle$ values at low temperatures and experience slower decay compared to two-layer and single-layer systems.
+
+This pattern becomes more prominent for $L = 16$, where transitions from ordered to disordered states appear clearer and steeper, especially in three-layer systems. This pattern becomes even more pronounced for $L = 24$ and $L = 32$, where $\langle M^2 \rangle$ is almost constant until a certain temperature, then decreases very sharply to zero.
+
+The shift in critical temperature toward higher values for three-layer systems compared to two and single layers shows that system thickness strengthens magnetic stability until higher temperatures. This is consistent with previous results from specific heat and magnetic moment ratio.
+
+The behavior of $\langle M^2 \rangle$ also shows the effect of system size that the larger $L$, the steeper the magnetization decrease, indicating that the system begins to represent thermodynamic limit behavior. Phase transitions become increasingly sharp and $\langle M^2 \rangle$ values approach zero simultaneously for all large lattice configurations, consistent with theoretical expectations for discrete spin systems experiencing second-order transitions.
+
+Thus, average square magnetization provides complementary evidence that is consistent with other observable results. Magnetic order transitions become clearer and more stable for systems with more layers and larger sizes, strengthening the conclusion that layered vertex-cubic systems represent ordered and disordered phases very well.
+
+\subsubsection{Internal Energy $\langle E \rangle$}
+
+All graphs show that energy increases monotonically with temperature, from negative minimum values at low temperatures toward zero approaching high temperatures, reflecting the decay of spin order due to thermal excitation.
+
+However, the rate of energy change and curve shape strongly depend on the number of layers. In single-layer systems, energy transitions occur more gradually and smoothly, with energy changes spread over a wider temperature range. This shows that energy fluctuations in 2D systems are relatively spread out and do not show sharp jumps in spin state reorganization.
+
+In contrast, in two-layer systems, energy changes become steeper, especially around the transition temperature that has also been identified from previous specific heat peaks. Three-layer systems show the sharpest energy changes, with very clear inflection points occurring in a narrow temperature range.
+
+This pattern is consistent across all lattice sizes. For $L = 8$, finite-size effects are still quite large, so energy curves appear smoother and transitions are not too sharp. However, at $L = 16$, energy changes become more explicit. This is increasingly strengthened for $L = 24$ and $L = 32$, where energy gradients for two-layer and three-layer systems show very rapid energy reorganization around the transition temperature.
+
+Three-layer system curves, in particular, show energy transitions that are almost discontinuous in narrow temperature ranges, indicating that the system is increasingly close to higher-dimensional continuous thermodynamic behavior.
+
+In addition, minimum energy values at low temperatures decrease as the number of layers increases. This shows that the basic configuration of layered systems has lower energy due to additional interlayer coupling that strengthens global spin order. This strengthens the results from magnetization observables which also show stronger stability of ordered phases in thick layered systems.
+
+Thus, it can be concluded that increasing the number of layers $n$, even at fixed lattice size $L$, strengthens phase transition characteristics reflected in changes in system internal energy. Transitions become sharper, minimum energy values lower, and spin reorganization more simultaneous, all pointing to consistency that layered systems show increasingly strong critical properties.
+
+\subsection{Critical Temperature Estimation}
+
+Table \ref{tab:critical_temp} summarizes critical temperature estimates $T_c$ for various lattice sizes $L = 8, 16, 24, 32$ and number of layers $n = 1, 2, 3$. These estimates are obtained from the location of specific heat peaks $C_v$, sharp changes in internal energy $\langle E \rangle$, and decay points of average square magnetization $\langle M^2 \rangle$.
+
+\begin{table}[ht]
+\centering
+	\begin{center}
+		\caption{Critical Temperature Estimates for Different Lattice Sizes and Layer Configurations}
+		\label{tab:critical_temp}
+		\small
+		\begin{tabular}{ c  c  c  c }
+			\hline
+			L × L & $T_c$ (n=1) & $T_c$ (n=2) & $T_c$ (n=3)\\
+			\hline
+			8 × 8 & 0.83 & 1.12 & 1.23 \\
+			16 × 16 & 0.85 & 1.14 & 1.25 \\
+			24 × 24 & 0.88 & 1.17 & 1.27 \\
+			32 × 32 & 0.88 & 1.19 & 1.28 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Two main trends are clearly visible from the table. First, for each fixed number of layers, $T_c$ values increase with lattice size $L$. This is a consequence of finite-size effects, where small systems are not yet fully able to manifest phase transition behavior in the thermodynamic limit. In other words, $T_c$ values measured in small systems tend to be lower than their asymptotic values when $L \rightarrow \infty$.
+
+However, for single-layer systems, the increase in $T_c$ is relatively stagnant around 0.88 at $L = 24$ and $L = 32$, indicating that the system begins to approach the actual critical value at these sizes.
+
+Second, and more significant physically, is the influence of the number of layers on $T_c$ values. It is observed that for each fixed lattice size, increasing the number of layers from $n = 1$ to $n = 3$ causes $T_c$ to shift consistently toward higher temperatures.
+
+For example, at $L = 16$, the $T_c$ value increases from 0.85 for single-layer systems to 1.25 for three-layer systems. This pattern reflects the additional dimensionality effect that emerges from layered structures: adding layers introduces inter-z interactions that increase the stability of ordered phases against thermal excitation, so the transition temperature becomes higher.
+
+This phenomenon confirms that layered systems—although built from two-dimensional layers—effectively begin to show behavior approaching three-dimensional systems when $n$ increases. This effect appears most significant in three-layer systems with large lattice sizes, such as $L = 32$, which has an estimated $T_c \approx 1.28$, almost 50\% higher than single-layer systems of the same size.
+
+The fact that $T_c$ values become increasingly stable at $L = 24$ and $L = 32$ for each $n$ also shows that the system has approached the thermodynamic scale limit, so these estimates are quite representative of actual critical behavior.
+
+Thus, the data in the table not only shows numerical shifts in $T_c$ values but also provides a consistent picture of how the additional dimensionality effect from layered systems influences phase transitions. These estimates can serve as a basis for further analysis, such as extracting critical exponents through scaling methods against $L$ and comparison with theoretical values from classical 2D and 3D spin models. 

@@ -1,0 +1,196 @@
+%% Example Article for JIKI Journal
+%% Based on mainTemplate_JIKI.tex
+%% This is an example showing how to structure your article
+
+\documentclass[conference, compsoc, twoside]{IEEEtran}
+
+% Essential packages
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[labelsep=period,labelfont=bf,justification=justified,font=small]{caption}
+\usepackage{balance}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{inconsolata}
+\usepackage[bottom]{footmisc}
+\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+% Code listing setup
+\lstset{
+  basicstyle=\ttfamily,
+}
+\captionsetup[lstlisting]{font={small}, labelfont={bf}}
+
+% Header setup
+\setlength{\headheight}{22pt}
+\pagestyle{fancy}
+\fancyhf{}
+\setcounter{page}{1}
+\fancypagestyle{firststyle}
+{
+   \fancyhf{}
+   \chead{Jurnal Ilmu Komputer dan Informasi (Journal of Computer Science and Information) \\ 15/1 (2022), xx-xx. DOI: \url{http://dx.doi.org/10.21609/jiki.v15i1.xxx}}
+   \fancyfoot[C]{\thepage}
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE]{\thepage \textbf{\space \textit{Jurnal Ilmu Komputer dan Informasi (Journal of Computer Science and Information),}} \textit{volume 15,} \\ \textit{ \textrm{ } issue 1, February 2022}}
+\fancyhead[LO]{\textit{Example Author et.al., Machine Learning Applications in Computer Vision}}
+\fancyhead[RO]{\thepage}
+
+% URL line breaks
+\renewcommand{\UrlBreaks}{\do\-}
+
+% Figure and table setup
+\def\figurename{Fig.}%
+\def\tablename{Table}%
+
+\begin{document}
+
+\title{Machine Learning Applications in Computer Vision: A Comprehensive Survey}
+
+\author{\IEEEauthorblockN{John Doe\textsuperscript{1}, Jane Smith\textsuperscript{2}, Bob Johnson\textsuperscript{1}\\\\}
+	\IEEEauthorblockA{
+		\normalfont \textsuperscript{1} Department of Computer Science, Faculty of Engineering, University of Technology, Jakarta, Indonesia\\
+		\textsuperscript{2} Research Group in Artificial Intelligence, National Research Institute, Bandung, Indonesia\\\\
+		\textit{Email: john.doe@university.edu, jane.smith@research.org} 
+	} \\
+}
+
+\twocolumn[
+{\csname @twocolumnfalse\endcsname \maketitle}
+{\csname @twocolumnfalse\endcsname 
+	\renewcommand{\abstractname}{Abstract}
+	\begin{abstract}
+		\noindent
+		\normalfont 
+		This paper presents a comprehensive survey of machine learning applications in computer vision. We examine recent developments in deep learning architectures, particularly convolutional neural networks (CNNs) and their applications in image classification, object detection, and semantic segmentation. The study analyzes various datasets, evaluation metrics, and performance benchmarks. Our findings indicate significant improvements in accuracy and efficiency across multiple computer vision tasks. The survey covers applications in medical imaging, autonomous vehicles, and industrial inspection systems. We also discuss challenges and future research directions in this rapidly evolving field.
+		\\\\
+		\noindent
+		\textbf{Keywords}: \textit{machine learning, computer vision, deep learning, convolutional neural networks, image processing} \\\\
+	\end{abstract}
+	
+	\renewcommand{\abstractname}{Abstrak}
+	\begin{abstract}
+		\noindent
+		\normalfont 
+		Makalah ini menyajikan survei komprehensif tentang aplikasi pembelajaran mesin dalam penglihatan komputer. Kami mengkaji perkembangan terbaru dalam arsitektur pembelajaran mendalam, khususnya jaringan saraf konvolusional (CNNs) dan aplikasinya dalam klasifikasi gambar, deteksi objek, dan segmentasi semantik. Studi ini menganalisis berbagai dataset, metrik evaluasi, dan tolok ukur kinerja. Temuan kami menunjukkan peningkatan signifikan dalam akurasi dan efisiensi di berbagai tugas penglihatan komputer. Survei mencakup aplikasi dalam pencitraan medis, kendaraan otonom, dan sistem inspeksi industri. Kami juga membahas tantangan dan arah penelitian masa depan di bidang yang berkembang pesat ini.
+		\\\\
+		\noindent
+		\textbf{Kata Kunci}: \textit{pembelajaran mesin, penglihatan komputer, pembelajaran mendalam, jaringan saraf konvolusional, pemrosesan gambar} \\\\
+	\end{abstract}
+}
+]
+
+\IEEEpeerreviewmaketitle
+\thispagestyle{firststyle}
+
+\section{Introduction}
+
+Computer vision has emerged as one of the most transformative technologies in artificial intelligence, with machine learning playing a pivotal role in its advancement. The integration of deep learning techniques, particularly convolutional neural networks (CNNs), has revolutionized how computers process and understand visual information. This paper provides a comprehensive survey of machine learning applications in computer vision, examining recent developments, challenges, and future directions.
+
+The rapid evolution of computer vision technologies has been driven by several key factors: the availability of large-scale datasets, advances in computational hardware, and innovative deep learning architectures. These developments have enabled significant breakthroughs in various applications, from autonomous vehicles to medical diagnosis systems.
+
+\section{Methodology}
+
+Our survey methodology involved systematic analysis of peer-reviewed publications from 2018 to 2023, focusing on machine learning applications in computer vision. We examined over 200 research papers from top-tier conferences and journals, including IEEE Computer Vision and Pattern Recognition (CVPR), International Conference on Computer Vision (ICCV), and Neural Information Processing Systems (NeurIPS).
+
+The analysis framework included three main components: architectural innovations, application domains, and performance evaluation metrics. We categorized applications into four primary domains: image classification, object detection, semantic segmentation, and image generation. For each domain, we analyzed the most prominent deep learning architectures and their performance characteristics.
+
+\section{Results and Analysis}
+
+\subsection{Deep Learning Architectures}
+
+Recent advances in deep learning have introduced several innovative architectures that have significantly improved computer vision performance. The most notable developments include:
+
+\begin{equation}
+f(x) = \sigma(W^T x + b)
+\label{eq:activation}
+\end{equation}
+
+where $x$ represents the input features, $W$ is the weight matrix, $b$ is the bias term, and $\sigma$ is the activation function.
+
+\subsection{Performance Evaluation}
+
+Table \ref{tab:performance} shows the performance comparison of different architectures on the ImageNet dataset.
+
+\begin{table}[ht]
+\centering
+	\begin{center}
+		\caption{Performance comparison of deep learning architectures on ImageNet dataset}
+		\label{tab:performance}
+		\small
+		\begin{tabular}{ c  c  c  c }
+			\hline
+			Architecture & Top-1 Accuracy (\%) & Parameters (M) & Inference Time (ms)\\
+			\hline
+			ResNet-50 & 76.2 & 25.6 & 8.2 \\
+			EfficientNet-B0 & 77.3 & 5.3 & 3.8 \\
+			Vision Transformer & 81.8 & 86.6 & 12.5 \\
+			Swin Transformer & 83.5 & 88.0 & 15.2 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\subsection{Application Domains}
+
+Our analysis revealed significant improvements across multiple application domains. Figure \ref{fig:applications} illustrates the distribution of computer vision applications in different sectors.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.5]{pics/VGG-CNN-S.png}
+		\caption{Distribution of computer vision applications across different sectors. The chart shows the percentage of research papers focusing on each application domain.}
+		\label{fig:applications}
+	\end{center}
+\end{figure}
+
+\subsection{Code Implementation}
+
+The following code demonstrates a simple CNN implementation using PyTorch:
+
+\begin{figure}[h]
+    \centering
+\begin{lstlisting}[frame=single]
+import torch
+import torch.nn as nn
+
+class SimpleCNN(nn.Module):
+    def __init__(self, num_classes=1000):
+        super(SimpleCNN, self).__init__()
+        self.conv1 = nn.Conv2d(3, 64, 7, stride=2, padding=3)
+        self.pool = nn.MaxPool2d(3, stride=2, padding=1)
+        self.fc = nn.Linear(64 * 7 * 7, num_classes)
+        
+    def forward(self, x):
+        x = self.pool(torch.relu(self.conv1(x)))
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+        return x
+\end{lstlisting}
+\caption{Simple CNN implementation using PyTorch framework. This code demonstrates the basic structure of a convolutional neural network for image classification.}
+    \label{fig:code}
+\end{figure}
+
+\section{Conclusion}
+
+This comprehensive survey highlights the remarkable progress in machine learning applications for computer vision. The integration of deep learning techniques has led to unprecedented improvements in accuracy and efficiency across various domains. However, several challenges remain, including the need for more interpretable models, efficient training methods, and robust evaluation frameworks.
+
+Future research directions should focus on developing more efficient architectures, improving model interpretability, and addressing ethical considerations in computer vision applications. The continued advancement of hardware capabilities and the availability of larger datasets will likely drive further innovations in this field.
+
+\section*{Acknowledgement}
+
+The authors would like to thank the research community for their valuable contributions to the field of computer vision and machine learning. Special thanks to the reviewers for their constructive feedback.
+
+\balance
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,IEEEexample}
+
+\end{document} 

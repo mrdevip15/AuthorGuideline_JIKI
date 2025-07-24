@@ -1,0 +1,104 @@
+%% Complete Article for JIKI Journal
+%% Based on Fauzan Husain's research on thermodynamic properties of magnetic models
+%% Using Monte Carlo simulations with vertex-cubic spin model
+
+\documentclass[conference, compsoc, twoside]{IEEEtran}
+
+% Essential packages
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[labelsep=period,labelfont=bf,justification=justified,font=small]{caption}
+\usepackage{balance}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{inconsolata}
+\usepackage[bottom]{footmisc}
+\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+% Code listing setup
+\lstset{
+  basicstyle=\ttfamily,
+}
+\captionsetup[lstlisting]{font={small}, labelfont={bf}}
+
+% Header setup
+\setlength{\headheight}{22pt}
+\pagestyle{fancy}
+\fancyhf{}
+\setcounter{page}{1}
+\fancypagestyle{firststyle}
+{
+   \fancyhf{}
+   \chead{Jurnal Ilmu Komputer dan Informasi (Journal of Computer Science and Information) \\ 15/1 (2022), xx-xx. DOI: \url{http://dx.doi.org/10.21609/jiki.v15i1.xxx}}
+   \fancyfoot[C]{\thepage}
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE]{\thepage \textbf{\space \textit{Jurnal Ilmu Komputer dan Informasi (Journal of Computer Science and Information),}} \textit{volume 15,} \\ \textit{ \textrm{ } issue 1, February 2022}}
+\fancyhead[LO]{\textit{Fauzan Husain et.al., Thermodynamic Properties of Magnetic Models}}
+\fancyhead[RO]{\thepage}
+
+% URL line breaks
+\renewcommand{\UrlBreaks}{\do\-}
+
+% Figure and table setup
+\def\figurename{Fig.}%
+\def\tablename{Table}%
+
+\begin{document}
+
+\title{Thermodynamic Properties of Magnetic Models Using Monte Carlo Simulations: A Study of Vertex-Cubic Spin Systems}
+
+\author{\IEEEauthorblockN{Fauzan Husain\textsuperscript{1}, Tadjuddin Surungan\textsuperscript{2}\\\\}
+	\IEEEauthorblockA{
+		\normalfont \textsuperscript{1} Department of Physics, Faculty of Mathematics and Natural Sciences, Hasanuddin University, Makassar, Indonesia\\
+		\textsuperscript{2} Department of Physics, Faculty of Mathematics and Natural Sciences, Hasanuddin University, Makassar, Indonesia\\\\
+		\textit{Email: fauzan.husain@unhas.ac.id, tadjuddin.surungan@unhas.ac.id} 
+	} \\
+}
+
+\twocolumn[
+{\csname @twocolumnfalse\endcsname \maketitle}
+{\csname @twocolumnfalse\endcsname 
+	\renewcommand{\abstractname}{Abstract}
+	\begin{abstract}
+		\noindent
+		\normalfont 
+		This research investigates the thermodynamic properties of magnetic models using Monte Carlo simulations with vertex-cubic spin systems. The study focuses on analyzing phase transitions, magnetization behavior, and critical temperature estimation in layered lattice structures. Using the Wolff algorithm for spin updates, we simulate systems with varying lattice sizes (8×8 to 32×32) and layer configurations (1-3 layers). Results show that increasing lattice size sharpens phase transition characteristics, while additional layers shift critical temperatures to higher values and enhance magnetic order stability. The vertex-cubic spin model effectively captures collective behavior in quasi-three-dimensional systems, providing insights into magnetic material properties and phase transition phenomena.
+		\\\\
+		\noindent
+		\textbf{Keywords}: \textit{magnetic models, Monte Carlo simulation, phase transitions, vertex-cubic spin, thermodynamic properties} \\\\
+	\end{abstract}
+	
+	\renewcommand{\abstractname}{Abstrak}
+	\begin{abstract}
+		\noindent
+		\normalfont 
+		Penelitian ini menyelidiki sifat-sifat termodinamika model magnetik menggunakan simulasi Monte Carlo dengan sistem spin vertex-kubik. Studi ini berfokus pada analisis transisi fasa, perilaku magnetisasi, dan estimasi suhu kritis dalam struktur kisi berlapis. Menggunakan algoritma Wolff untuk pembaruan spin, kami mensimulasikan sistem dengan ukuran kisi bervariasi (8×8 hingga 32×32) dan konfigurasi lapisan (1-3 lapisan). Hasil menunjukkan bahwa peningkatan ukuran kisi mempertegas karakteristik transisi fasa, sementara penambahan lapisan menggeser suhu kritis ke nilai yang lebih tinggi dan meningkatkan stabilitas orde magnetik. Model spin vertex-kubik secara efektif menangkap perilaku kolektif dalam sistem kuasi-tiga dimensi, memberikan wawasan tentang sifat material magnetik dan fenomena transisi fasa.
+		\\\\
+		\noindent
+		\textbf{Kata Kunci}: \textit{model magnetik, simulasi Monte Carlo, transisi fasa, spin vertex-kubik, sifat termodinamika} \\\\
+	\end{abstract}
+}
+]
+
+\IEEEpeerreviewmaketitle
+\thispagestyle{firststyle}
+
+\input{chapter1_introduction}
+\input{chapter2_methodology}
+\input{chapter3_results}
+\input{chapter4_conclusion}
+
+\balance
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,IEEEexample}
+
+\end{document} 
